@@ -13,35 +13,58 @@ public class Student {
         department = nDepartment;
     }
 
-    void setFirstName(String fName) {
+    public void setFirstName(String fName) {
         firstName = fName;
     }
 
-    void setLastNameName(String lName) {
+    public void setLastNameName(String lName) {
         lastName = lName;
     }
 
-    void setGrade(double nGrade) {
+    public void setGrade(double nGrade) {
         grade = nGrade;
     }
 
-    void setDepartment(String nDepartment) {
+    public void setDepartment(String nDepartment) {
         department = nDepartment;
     }
 
-    String getFirstName() {
+    public String getFirstName() {
         return firstName;
     }
 
-    String getLastName() {
+    public String getLastName() {
         return lastName;
     }
 
-    double getGrade() {
+    public double getGrade() {
         return grade;
     }
 
-    String getDepartment() {
+    public String getDepartment() {
         return department;
     }
+
+    public String getName() {
+        return firstName + " " + lastName;
+    }
+
+    @Override
+    public String toString() {
+        return getName() + " grade: " + grade + " in department: " + department;
+    }
+
+    @Override
+    public boolean equals(Object another) {
+        if (another == this) return true;
+        if (!(another instanceof Student)) return false;
+        Student stu = (Student) another;
+        return firstName.equals(stu.getFirstName()) &&
+                lastName.equals(stu.getLastName()) &&
+                department.equals(stu.getDepartment()) &&
+                (grade == stu.getGrade());
+
+    }
+
+
 }
