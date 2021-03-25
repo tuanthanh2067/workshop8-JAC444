@@ -57,6 +57,15 @@ public class StudentProcess {
                 ;
         list4b.forEach(System.out::println);
 
+        // task 5
+        System.out.println("------------------- Task 5 -------------------");
+        Stream<String> list5 = list
+                .stream()
+                .sorted(Comparator.comparing(Student::getLastName))
+                .map(Student::getLastName)
+                .distinct()
+                ;
+        list5.forEach(System.out::println);
 
     }
 }
