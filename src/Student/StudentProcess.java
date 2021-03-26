@@ -35,11 +35,12 @@ public class StudentProcess {
 
         // task 3 -- not finished
         System.out.println("------------------- Task 3 -------------------");
-        Stream<Student> list3 = list
+        Optional<Student> list3 = list
                 .stream()
                 .filter(stu -> stu.getGrade() > 50 && stu.getGrade() < 100)
+                .findFirst()
                 ;
-        list3.forEach(System.out::println);
+        System.out.println(list3);
 
         // task 4
         System.out.println("------------------- Task 4a -------------------");
