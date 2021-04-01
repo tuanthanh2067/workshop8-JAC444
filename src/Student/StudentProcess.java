@@ -1,12 +1,7 @@
 package Student;
 
 import java.util.*;
-import java.util.function.Consumer;
-import java.util.function.BiConsumer;
-import java.util.function.Function;
-import java.util.function.Predicate;
 import java.util.stream.Stream;
-import java.util.stream.Collectors;
 
 public class StudentProcess {
 
@@ -25,7 +20,7 @@ public class StudentProcess {
         List<Student> list = Arrays.asList(students);
         list.forEach(System.out::println);
 
-        // task 2 -- not sure
+        // task 2
         System.out.println("------------------- Task 2 -------------------");
         Stream<Student> list2 = list
                 .stream()
@@ -33,7 +28,7 @@ public class StudentProcess {
                 .sorted(Comparator.comparing(Student::getGrade));
         list2.forEach(System.out::println);
 
-        // task 3 -- not finished
+        // task 3
         System.out.println("------------------- Task 3 -------------------");
         Optional<Student> list3 = list
                 .stream()
@@ -67,6 +62,31 @@ public class StudentProcess {
                 .distinct()
                 ;
         list5.forEach(System.out::println);
+
+        // task 6
+        System.out.println("------------------- Task 6 -------------------");
+        Stream<String> list6 = list
+                .stream()
+                .sorted(Comparator.comparing(Student::getLastName))
+                .sorted(Comparator.comparing(Student::getFirstName))
+                .map(Student::getName)
+                ;
+        list6.forEach(System.out::println);
+
+        // task 7
+        System.out.println("------------------- Task 7 -------------------");
+
+
+        // task 8
+        System.out.println("------------------- Task 8 -------------------");
+
+        // task 9
+        System.out.println("------------------- Task 9 -------------------");
+       double list9 = list
+               .stream()
+               .mapToDouble(stu -> stu.getGrade())
+               .sum();
+       System.out.println("Sum of Student's grades: " + list9);
 
     }
 }
