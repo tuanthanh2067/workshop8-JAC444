@@ -68,8 +68,8 @@ public class StudentProcess {
         System.out.println("------------------- Task 6 -------------------");
         Stream<String> list6 = list
                 .stream()
-                .sorted(Comparator.comparing(Student::getLastName))
                 .sorted(Comparator.comparing(Student::getFirstName))
+                .sorted(Comparator.comparing(Student::getLastName))
                 .map(Student::getName)
                 ;
         list6.forEach(System.out::println);
