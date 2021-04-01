@@ -1,6 +1,7 @@
 package Student;
 
 import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class StudentProcess {
@@ -75,11 +76,24 @@ public class StudentProcess {
 
         // task 7
         System.out.println("------------------- Task 7 -------------------");
-
+        Map<String, List<Student>> list7 = list
+                .stream()
+                .collect(Collectors.groupingBy(Student::getDepartment))
+                ;
+        list7.forEach((department, returnedStudents) -> {
+            System.out.println(department);
+            returnedStudents.forEach(System.out::println);
+        });
 
         // task 8
         System.out.println("------------------- Task 8 -------------------");
-
+        Map<String, Long> list8 = list
+                .stream()
+                .collect(Collectors.groupingBy(Student::getDepartment, Collectors.counting()))
+                ;
+        list8.forEach((department, count) -> {
+            System.out.println(department + " has " + count + " Student(s)");
+        });
         // task 9
         System.out.println("------------------- Task 9 -------------------");
        double list9 = list
@@ -88,5 +102,13 @@ public class StudentProcess {
                .sum();
        System.out.println("Sum of Student's grades: " + list9);
 
+        // task 10
+        System.out.println("------------------- Task 10 -------------------");
+        OptionalDouble list10 = list
+                .stream()
+                .mapToDouble(stu -> stu.getGrade())
+                .average();
+
+        System.out.println("Average of Students' grades: " + list10.getAsDouble());
     }
 }
